@@ -22,13 +22,13 @@ A vantagem do reduceByKey é devido ao mesmo já realizar o agrupamento da infor
 
 
 # Explique o que o código Scala abaixo faz.
-val textFile = sc.textFile ( "hdfs://..." )
+val textFile = sc.textFile ("hdfs://...")
 
-val counts = textFile.flatMap ( line => line . split ( " " ))
-.map ( word => ( word , 1 ))
-.reduceByKey ( _ + _ )
+val counts = textFile.flatMap(line => line.split(" "))
+        .map(word => (word , 1))
+        .reduceByKey(_+_)
 
-counts.saveAsTextFile ( "hdfs://..." )
+counts.saveAsTextFile("hdfs://...")
 
 1.	Na linha 1 é realizada a leitura de um arquivo texto (armazenado no HDFS) para uma variável imutável.
 2.	Na linha 2 cada linha do arquivo texto é “splitada” por espaço (palavras) e depois todas as linhas transformadas é uma coleção.
